@@ -9,8 +9,8 @@ class _InfoWidgetRouteLayout<T> extends SingleChildLayoutDelegate {
 
   _InfoWidgetRouteLayout(
       {@required this.mapsWidgetSize,
-      @required this.height,
-      @required this.width});
+        @required this.height,
+        @required this.width});
 
   /// Depending of the size of the marker or the widget, the offset in y direction has to be adjusted;
   /// If the appear to be of different size, the commented code can be uncommented and
@@ -44,7 +44,7 @@ class _InfoWidgetRouteLayout<T> extends SingleChildLayoutDelegate {
   }
 }
 
-class InfoWidgetRoute extends PopupRoute {
+class InfoWidgetRoute extends PopupRoute<void> {
   final Widget child;
   final double width;
   final double height;
@@ -85,7 +85,7 @@ class InfoWidgetRoute extends PopupRoute {
       removeTop: true,
       child: Builder(builder: (BuildContext context) {
         return CustomSingleChildLayout(
-          delegate: _InfoWidgetRouteLayout(
+          delegate: _InfoWidgetRouteLayout<void>(
               mapsWidgetSize: mapsWidgetSize, width: width, height: height),
           child: InfoWidgetPopUp(
             infoWidgetRoute: this,
